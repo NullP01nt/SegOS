@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <io/stdio.h>
 
 void outb(u16int port, u8int data)
 {

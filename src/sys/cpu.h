@@ -1,9 +1,9 @@
 #ifndef __CPU_H
 #define __CPU_H
 
-#include <types.h>
+#include <sys/types.h>
 
-enum cpuid_requests {
+enum cpuid_req_t {
     CPUID_GETVENDORSTRING,
     CPUID_GETFEATURES,
     CPUID_GETTLB,
@@ -19,9 +19,9 @@ enum cpuid_requests {
  *  *  note that even if only "eax" and "edx" are of interest, other registers
  *   *  will be modified by the operation, so we need to tell the compiler about it.
  *    */
-void cpuid(s32int code, u32int *a, u32int *d);
+void cpuid(enum cpuid_req_t code, u32int *a, u32int *d);
 
 /** issue a complete request, storing general registers output as a string
  *  */
-int cpuid_string(s32int code, u32int where[4]);
+int cpuid_string(enum cpuid_req_t code, u32int where[4]);
 #endif

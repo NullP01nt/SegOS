@@ -1,5 +1,6 @@
 #include <system.h>
-#include <screen.h>
+#include <io/stdio.h>
+#include <io/screen.h>
 
 u16int *vram = (u16int*)0xB8000;
 u8int crs_x;
