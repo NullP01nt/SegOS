@@ -1,7 +1,6 @@
 # --- Project Details ----------------------------------------------
 
-PROJ	:= kernel
-TARGET	:= $(PROJ)
+TARGET	:= kernel
 
 OBJS	:= boot.o kernel.o screen.o cpu.o mem.o stdio.o
 
@@ -12,7 +11,7 @@ CC 	:= $(PREFIX)gcc
 LD	:= $(PREFIX)ld
 AS	:= $(PREFIX)as
 
-CFLAGS  = -Wall -Wextra -nostdlib -nostdinc -fno-builtin -nostartfiles -nodefaultlibs -fno-stack-protector -I./include
+CFLAGS  = -Wall -Wextra -nostdlib -nostdinc -fno-builtin -nostartfiles -nodefaultlibs -fno-stack-protector -I./ -lgcc
 LDFLAGS = -Tlinker.ld
 ASFLAGS =
 
@@ -25,13 +24,13 @@ build: $(TARGET).bin
 $(TARGET).bin : $(OBJS) link
 
 .s.o:
-	$(AS) $(ASFLAGS) $< -o $@
+	@$(AS) $(ASFLAGS) $< -o $@
 
 .c.o:
-	$(CC) $(CFLAGS) -o $@ -c $<
+	@$(CC) $(CFLAGS) -o $@ -c $<
 
 link:
-	$(LD) $(LDFLAGS) -o $(TARGET).bin $(OBJS)
+	@$(LD) $(LDFLAGS) -o $(TARGET).bin $(OBJS)
 
 # --- Clean --------------------------------------------------------
 
