@@ -10,15 +10,14 @@ void kmain(void)
         // Something went wrong
     }
     cls();
-    puts("Hello, World!\n");
-    
-    u32int words[4];
+    puts("SegOS booting!\n");
+	u32int words[4];
     cpuid_string(0, words);
     int i;
     for(i = 0; i < 4; i++)
     {
         putch(65+i);
-        putch(' ');
+        puts(": ");
         puthex(words[i]);
         putch('\n');
     }

@@ -6,7 +6,7 @@
 # ---- begin config params ----
  
 harddisk_image_size=$((4*1024*1024)) # 4 megabytes
-harddisk_image="harddisk.img"
+harddisk_image="floppy.img"
 qemu_cmdline="kvm -monitor stdio"
 kernel_args=""
 kernel_binary="src/kernel.bin"

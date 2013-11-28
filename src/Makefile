@@ -3,7 +3,7 @@
 PROJ	:= kernel
 TARGET	:= $(PROJ)
 
-OBJS	:= loader.o kernel.o screen.o cpu.o mem.o stdio.o
+OBJS	:= boot.o kernel.o screen.o cpu.o mem.o stdio.o
 
 # --- Build defines ------------------------------------------------
 
