@@ -66,9 +66,5 @@ void term_scroll()
 void term_puts(const char* string)
 {
 	size_t i = 0;
-	while(string[i]!=0)
-	{
-		term_putch(string[i]);
-		i++;
-	}
+	while(string[i]!=0)	term_putch(string[i++]);
 }
