@@ -17,7 +17,8 @@ void cpu_info()
 	memcpy((uint8_t*)&brand[0],(uint8_t*)&words[1],4);
     memcpy((uint8_t*)&brand[4],(uint8_t*)&words[3],4);
     memcpy((uint8_t*)&brand[8],(uint8_t*)&words[2],4);
-    term_puts("Vendor: ");
+    //printf("Vendor: %s\n",brand);
+	term_puts("Vendor: ");
 	term_puts(brand);
 }
 

@@ -42,4 +42,6 @@ void term_scroll();
 
 void term_putch(char c);
 void term_puts(const char* string);
+
+void printf(const char* format, ...);
 #endif

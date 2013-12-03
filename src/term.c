@@ -81,3 +81,37 @@ void term_puts(const char* string)
 	size_t i = 0;
 	while(string[i]!=0)	term_putch(string[i++]);
 }
+
+//	void printf(const char* format, ...)
+//	{
+//		const char *p;
+//		va_list	argp;
+//		int i;
+//		char *s;
+//		char fmtbuf[256];
+//	
+//		for(p = format; *p != '\0'; p++)
+//		{
+//			if(*p != '%')
+//			{
+//				term_putch(*p);
+//				continue;
+//			} else {
+//				switch(*++p)
+//				{
+//					case 'c':
+//						i = va_arg(argp, int);
+//						term_putch(i);
+//						break;
+//					case 's':
+//						s = va_arg(argp, char *);
+//						term_puts(s);
+//						break;
+//					case '%':
+//						term_putch('%');
+//						break;
+//				}
+//			}
+//		}
+//		va_end(argp);
+//	}
