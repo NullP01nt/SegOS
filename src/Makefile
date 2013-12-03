@@ -2,7 +2,7 @@
 
 TARGET	:= kernel
 
-OBJS	:= boot.o kernel.o term.o
+OBJS	:= boot.o kernel.o term.o cpu.o mem.o
 
 # --- Build defines ------------------------------------------------
 

@@ -38,7 +38,11 @@ void term_clr()
  
 void term_putch(char c)
 {
-	if(c == '\n') {
+	if(c == 0x08 && term_col) {
+		term_col--;
+	} else if (c == 0x09) {
+		term_col = (term_col+8) & ~(8-1);
+	} else if(c == '\n') {
 		term_col = 0;
 		term_row++;
 	} else if (c == '\r') {
@@ -47,19 +51,28 @@ void term_putch(char c)
 		const size_t index = term_row * VGA_WIDTH + term_col++;
 		term_buff[index] = c | term_color << 8;
 	}
+
 	term_scroll();
 }
 
 void term_scroll()
 {
-	if ( term_col == VGA_WIDTH )
-	{
+	uint16_t blank = 0x20 | (term_color<<8);
+	if(term_col >= VGA_WIDTH) {
 		term_col = 0;
 		term_row++;
 	}
-	if ( term_row == VGA_HEIGHT )
-	{
-		term_row = 0;
+
+	if(term_row >= VGA_HEIGHT) {
+		int i;
+		for(i = 0; i < VGA_HEIGHT*VGA_WIDTH; i++) {
+			term_buff[i] = term_buff[i+VGA_WIDTH];
+		}
+
+		for(i = VGA_HEIGHT*VGA_WIDTH; i < (VGA_HEIGHT+1)*VGA_WIDTH;i++) {
+			term_buff[i] = blank;
+		}
+		term_row = 24;
 	}
 }
 
