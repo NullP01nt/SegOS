@@ -8,7 +8,7 @@
 #error "You are not using a cross-compiler, you will most certainly run into trouble"
 #endif
 
-void print_cpu()
+void cpu_info()
 {
 	uint32_t words[4];
 	term_puts("--- Detecting CPU ---\n");
@@ -17,7 +17,8 @@ void print_cpu()
 	memcpy((uint8_t*)&brand[0],(uint8_t*)&words[1],4);
     memcpy((uint8_t*)&brand[4],(uint8_t*)&words[3],4);
     memcpy((uint8_t*)&brand[8],(uint8_t*)&words[2],4);
-    term_puts(brand);
+    term_puts("Vendor: ");
+	term_puts(brand);
 }
 
 void kernel_main()
@@ -27,6 +28,6 @@ void kernel_main()
 //	/* Since there is no support for newlines in terminal_putchar yet, \n will
 //	   produce some VGA specific character instead. This is normal. */
 	term_puts("SegOS Booting!\n");
-	print_cpu();
+	cpu_info();
 	while(1);
 }

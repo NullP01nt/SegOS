@@ -47,7 +47,7 @@ void term_putch(char c)
 		term_row++;
 	} else if (c == '\r') {
 		term_col = 0;
-	} else {
+	} else if (c >= 0x20 ) {
 		const size_t index = term_row * VGA_WIDTH + term_col++;
 		term_buff[index] = c | term_color << 8;
 	}
