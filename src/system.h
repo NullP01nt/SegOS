@@ -6,6 +6,9 @@
 
 
 /**** CPU.C ****/
+#define CPUID_VENDOR_AMD	"AuthenticAMD"
+#define CPUID_VENDOR_INTEL	"GenuineIntel"
+
 enum cpuid_req_t {
     CPUID_GETVENDORSTRING,
     CPUID_GETFEATURES,

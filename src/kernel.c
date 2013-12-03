@@ -20,6 +20,15 @@ void cpu_info()
     //printf("Vendor: %s\n",brand);
 	term_puts("Vendor: ");
 	term_puts(brand);
+	term_putch('\n');	
+	
+	cpuid_string(CPUID_INTELBRANDSTRING, words);
+	memcpy((uint8_t*)&brand[0],(uint8_t*)&words[1],4);
+    memcpy((uint8_t*)&brand[4],(uint8_t*)&words[3],4);
+    memcpy((uint8_t*)&brand[8],(uint8_t*)&words[2],4);
+	term_puts("Brand: ");
+	term_puts(brand);
+	term_putch('\n');	
 }
 
 void kernel_main()
