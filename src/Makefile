@@ -6,7 +6,7 @@ OBJS	:= boot.o kernel.o screen.o cpu.o mem.o stdio.o
 
 # --- Build defines ------------------------------------------------
 
-PREFIX	:= i586-elf-
+PREFIX	:= i686-elf-
 CC 	:= $(PREFIX)gcc
 LD	:= $(PREFIX)ld
 AS	:= $(PREFIX)as
