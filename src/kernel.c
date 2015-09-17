@@ -25,6 +25,7 @@ void kmain(void)
     memcpy((u8int*)&brand[0],(u8int*)&words[1],4);
     memcpy((u8int*)&brand[4],(u8int*)&words[3],4);
     memcpy((u8int*)&brand[8],(u8int*)&words[2],4);
+	puts("CPU Brand: ");
     puts(brand);
     while(1);
 }
